@@ -34,7 +34,12 @@ exec(char *path, char **argv)
     goto bad;
   if(elf.magic != ELF_MAGIC)
     goto bad;
-
+  if(elf.version != ELF_EV_CURRENT)
+    goto bad;
+  if(elf.type != ELF_ET_EXEC)
+    goto bad;
+  if(elf.phentsize != sizeof(ph))
+    goto bad;
   if((pgdir = setupkvm()) == 0)
     goto bad;
 

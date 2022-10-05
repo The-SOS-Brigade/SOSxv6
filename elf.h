@@ -2,6 +2,17 @@
 
 #define ELF_MAGIC 0x464C457FU  // "\x7FELF" in little endian
 
+// ELF version constants
+#define ELF_EV_NONE 0
+#define ELF_EV_CURRENT 1
+
+// ELF type constants
+#define ELF_ET_NONE 0
+#define ELF_ET_REL 1
+#define ELF_ET_EXEC 2
+#define ELF_ET_DYN 3
+#define ELF_ET_CORE 4
+
 // File header
 struct elfhdr {
   uint magic;  // must equal ELF_MAGIC
